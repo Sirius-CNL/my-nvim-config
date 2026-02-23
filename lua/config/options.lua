@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 
-vim.cmd([[colorscheme tokyonight-storm]])
+vim.cmd([[colorscheme onedark]])
 
 
 -- 缩进与制表符
@@ -12,4 +12,6 @@ vim.opt.smartindent = true
 
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+
+vim.opt.fillchars:append({ eob = ' ' })
 

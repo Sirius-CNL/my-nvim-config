@@ -1,3 +1,4 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -18,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -27,7 +29,28 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { 
+    colorscheme = { "habamax" },
+    -- 👇 增加超时设置（单位：毫秒）
+    timeout = 600000,  -- 600秒 = 10分钟
+  },
+  -- git 相关配置（可选，如果网络不稳定可以添加）
+  git = {
+    -- 使用 https 协议而不是 git 协议
+    url_format = "https://github.com/%s.git",
+    -- git 操作超时（单位：秒）
+    timeout = 300,
+  },
   -- automatically check for plugin updates
-  checker = { enabled = true, notify = false},
+  checker = { 
+    enabled = true,
+    -- 👇 可选：关闭更新通知
+    notify = false,
+  },
+  -- 👇 性能优化（可选）
+  performance = {
+    cache = {
+      enabled = true,
+    },
+  },
 })

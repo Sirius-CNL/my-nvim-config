@@ -1,4 +1,8 @@
-# 文件结构
+# MY NVIM CONFIG
+
+(Windows)
+
+## 文件结构
 
 ```
 📂 ~/.config/nvim
@@ -10,3 +14,8 @@
 │   │   └── keymaps.lua  <-- 快捷键映射
 │   └── 📂 plugins       <-- 插件列表（每个文件一个插件）
 ```
+
+### 2026.2.3 更新：
+  添加了 `blink.cmp` 和 `nvim-lspconfig` 提供了对C++的自动补全支持
+  优化了界面（把烦人的 '~' 去掉了）
+
